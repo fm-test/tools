@@ -3,7 +3,7 @@
 /**
  * Send notifications based on build status string
  */
-def deepcopy(orig){
+def deep_copy(orig){
     bos = new ByteArrayOutputStream()
     oos = new ObjectOutputStream(bos)
     oos.writeObject(orig); oos.flush()
