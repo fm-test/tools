@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def set_display_name( para ){
+def set_display_name( List para ){
   args = [:]
   for (int i = 0; i < para.size(); i++){
       args[para[i].name] = para[i].value
