@@ -1,10 +1,10 @@
 #!/usr/bin/env groovy
 
-def call(orig) {
-     bos = new ByteArrayOutputStream()
-     oos = new ObjectOutputStream(bos)
-     oos.writeObject(orig); oos.flush()
-     bin = new ByteArrayInputStream(bos.toByteArray())
-     ois = new ObjectInputStream(bin)
-     return ois.readObject()
+def call(LinkedHashMap para) {
+    arg = [:]
+    def para_key_set = para.keySet()
+    for (int i = 0; i < para.size(); i++){
+        arg[para_key_set[i]] = para[para_key_set[i]]
+    }
+    return arg
 }
