@@ -1,10 +1,6 @@
 #!/usr/bin/env groovy
 
-def call( List para ){
-  args = [:]
-  for (int i = 0; i < para.size(); i++){
-      args[para[i].name] = para[i].value
-  }
+def call( LinkedHashMap args ){
   def suffix = ""
 
   if (args.GGA_SETTINGS ==~ /.*callOnTargetAPI=1.*/) {
@@ -44,6 +40,6 @@ def call( List para ){
     suffix = suffix + ".ForceHostCfg"
   }
   // This suffix will be concatnated at the end of build.display_name
-  para.add([$class: 'StringParameterValue', name: 'DISPLAY_NAME', value: suffix])
-  return para
+  args.DISPLAY_NAME = suffix
+  return args
 }
