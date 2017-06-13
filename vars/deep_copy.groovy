@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def deepcopy(orig) {
+def call(orig) {
      bos = new ByteArrayOutputStream()
      oos = new ObjectOutputStream(bos)
      oos.writeObject(orig); oos.flush()
