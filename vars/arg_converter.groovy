@@ -4,8 +4,14 @@ def call(LinkedHashMap para){
     arg = []
     def para_key_set = para.keySet()
     for (int i = 0; i < para.size(); i++){
-        def tmp = [$class: 'StringParameterValue', name: para_key_set[i], value: para[para_key_set[i]]]
-        arg.add(tmp)
+        if ( para[para_key_set[i]].getClass() == String.TYPE ){
+            def tmp = [$class: 'StringParameterValue', name: para_key_set[i], value: para[para_key_set[i]]]
+            arg.add(tmp)
+        }
+        else{
+            def tmp = [$class: 'BooleanParameterValue', name: para_key_set[i], value: para[para_key_set[i]]]
+            arg.add(tmp)
+        }
     }
     return arg
 }
