@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def call(List para){
+def call(LinkedHashMap para){
     arg = []
     para= para[0]
     def para_key_set = para.KeySet()
